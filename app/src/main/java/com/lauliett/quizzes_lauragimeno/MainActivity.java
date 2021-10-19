@@ -1,16 +1,10 @@
 package com.lauliett.quizzes_lauragimeno;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
 
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -48,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
         send.setText(getResources().getText(R.string.boton_enviar));
 
         send.setOnClickListener(view -> {
+            if(respeustasRadioGroup.getCheckedRadioButtonId() == -1){
+                Toast.makeText(this,"Debe seleccionar una respuesta", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            mostraResultadoRespuesta();
             actualizarValores();
         });
         //inicializamos los datos. Ya sé que esto es horrendibiloso hacerlo aquí maś bueno //aprenderemos MVVM + dao!
@@ -66,11 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void actualizarValores(){
-        if(respeustasRadioGroup.getCheckedRadioButtonId() == -1){
-            Toast.makeText(this,"Debe seleccionar una respuesta", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        mostraResultadoRespuesta();
+
         numeroPreguntaMostrada++;
         if(numeroPreguntaMostrada >= preguntas.size()) {
             numeroPreguntaMostrada = 0;
@@ -98,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void generarRadioButtonsPorPregunta(){
         List<String> respuestas = preguntas.get(numeroPreguntaMostrada).getRespuestas();
-        int numeroRespuesta = 0;
+
         for (String respuesta : respuestas) {
             RadioButton respuestaRadio = crearRadioButton(respuesta);
             respeustasRadioGroup.addView(respuestaRadio);
