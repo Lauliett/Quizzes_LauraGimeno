@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Quizzes_LauraGimeno</string>
+    <string name="boton_enviar">Enviar</string>
+    <string name="resuesta_correcta">BIEN!!!!</string>
+    <string name="resuesta_incorrecta">MAL :(</string>
+    <string name="informacion_fin_juego">Felicidades! Has finalizado la leccion</string>
+    <string name="boton_continuar">continuar</string>
+    <string name="boton_reiniciar_partida">volver a empezar</string>
+</resources>

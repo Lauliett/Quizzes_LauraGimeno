@@ -1,0 +1,3 @@
+When an activit is launched, what is the first callback method who is called?;onStart();onCreate();onRestart();0
+¿What is an Intent in android?;a map object whose key is a String and its value a parceable object;a messaging object that can be use to request action from another componenets;a nice interface;1
+Parcebale object is an interface that allows you tu generate map parcels automatically. False or True?;true;false;1

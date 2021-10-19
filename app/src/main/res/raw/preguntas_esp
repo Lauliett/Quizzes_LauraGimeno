@@ -1,0 +1,3 @@
+¿Cuál es la primera llamada que se efectua al lanzar una actividad?;onStart();onCreate();onRestart();0
+¿Qué es un Intent en android?;un objeto map de clave tipo String y valor objeto parceable;un objeto de mensajería que puede usarse para solicitar acciones de otros componentes;una interfaz chachi;1
+El objeto parceable es una interfaz que permite generar parcelas de mapa de forma automática. ¿Falso o Verdadero?;verdadero;falso;1
