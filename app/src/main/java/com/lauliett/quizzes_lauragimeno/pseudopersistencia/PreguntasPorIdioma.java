@@ -26,7 +26,6 @@ public class PreguntasPorIdioma {
 
     /**
      * Devuelve un listado de preguntas según el idioma pasado por parámetro
-     * @param idioma
      * @return listado de preguntas
      */
    public List<Pregunta> devolverPreguntas(String idioma) {
@@ -43,14 +42,14 @@ public class PreguntasPorIdioma {
 
     /**
      * Devuelve un listado de preguntas en el idioma español
-     * @return
+     * @return listado
      */
     private static List<Pregunta> espanolDevolverPreguntas(){
         List<Pregunta> preguntas = new ArrayList<>();
 
         preguntas.add(new Pregunta(
                 "¿Cuál es la primera llamada que se efectúa al lanzar un activity?",
-                new ArrayList<String>(Arrays.asList(
+                new ArrayList<>(Arrays.asList(
                         "onStart()",
                         "onCreate()",
                         "onRestart()")),
@@ -58,7 +57,7 @@ public class PreguntasPorIdioma {
         ));
         preguntas.add(new Pregunta(
                 "¿Qué es un Intent en android?",
-                new ArrayList<String>(Arrays.asList(
+                new ArrayList<>(Arrays.asList(
                         "un objeto map de clave tipo String y valor objeto parceable",
                         "un objeto de mensajería que puede usarse para solicitar acciones de otros componentes",
                         "una interfaz chachi")),
@@ -66,7 +65,7 @@ public class PreguntasPorIdioma {
         ));
         preguntas.add(new Pregunta(
                 "El objeto parceable es una interfaz que permite generar parcelas de mapa de forma automática. ¿Falso o Verdadero?",
-                new ArrayList<String>(Arrays.asList("Verdadero", "Falso")),
+                new ArrayList<>(Arrays.asList("Verdadero", "Falso")),
                 1
         ));
         return preguntas;
@@ -74,7 +73,7 @@ public class PreguntasPorIdioma {
 
     /**
      * Devuelve un listado de preguntas en el idioma inglés.
-     * @return
+     * @return List<Pregunta>
      */
     //perdonenme mis traducciones al inglés.
     private List<Pregunta> inglesDevolverPreguntas(){
@@ -83,7 +82,7 @@ public class PreguntasPorIdioma {
 
         preguntas.add(new Pregunta(
                 "When an activit is launched, what is the first callback method who is called?",
-                new ArrayList<String>(Arrays.asList(
+                new ArrayList<>(Arrays.asList(
                         "onStart()",
                         "onCreate()",
                         "onRestart()")),
@@ -91,7 +90,7 @@ public class PreguntasPorIdioma {
         ));
         preguntas.add(new Pregunta(
                 "¿What is an Intent in android?",
-                new ArrayList<String>(Arrays.asList(
+                new ArrayList<>(Arrays.asList(
                         "a map object whose key is a String and its value is a parceable object",
                         "a messaging object that can be use to request actions from another componenets",
                         "a nice interface")),
@@ -99,7 +98,7 @@ public class PreguntasPorIdioma {
         ));
         preguntas.add(new Pregunta(
                 "Parcebale object is an interface that allows us tu generate map parcels automatically. False or True?",
-                new ArrayList<String>(Arrays.asList("True", "False")),
+                new ArrayList<>(Arrays.asList("True", "False")),
                 1
         ));
         return preguntas;

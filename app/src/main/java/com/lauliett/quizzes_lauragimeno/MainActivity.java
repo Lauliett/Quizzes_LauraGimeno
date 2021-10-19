@@ -44,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
         send.setOnClickListener(view -> {
             if(respeustasRadioGroup.getCheckedRadioButtonId() == -1){
                 Toast.makeText(this,"Debe seleccionar una respuesta", Toast.LENGTH_SHORT).show();
-                return;
+            }else{
+                mostraResultadoRespuesta();
+                actualizarValores();
             }
-            mostraResultadoRespuesta();
-            actualizarValores();
         });
         //inicializamos los datos. Ya sé que esto es horrendibiloso hacerlo aquí maś bueno //aprenderemos MVVM + dao!
         inicializarDatos();
@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         numeroPregunta.setText(devolverFormatoNumeroPreguntaMostrada());
         respeustasRadioGroup.removeAllViews();
         generarRadioButtonsPorPregunta();
+        respeustasRadioGroup.check(-1);
     }
 
     private String devolverFormatoNumeroPreguntaMostrada(){
