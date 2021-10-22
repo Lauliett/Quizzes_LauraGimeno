@@ -17,7 +17,6 @@ import com.lauliett.quizzes_lauragimeno.pseudopersistencia.PreguntasPorIdioma;
 import java.util.List;
 import java.util.Locale;
 
-
 public class MainActivity extends AppCompatActivity {
 
     private List<Pregunta> preguntas;
@@ -45,8 +44,9 @@ public class MainActivity extends AppCompatActivity {
             if(respeustasRadioGroup.getCheckedRadioButtonId() == -1){
                 Toast.makeText(this,"Debe seleccionar una respuesta", Toast.LENGTH_SHORT).show();
             }else{
-                mostraResultadoRespuesta();
-                actualizarValores();
+                if(mostrarResultadoRespuesta()){
+                    actualizarValores();
+                }
             }
         });
         //inicializamos los datos. Ya sé que esto es horrendibiloso hacerlo aquí maś bueno //aprenderemos MVVM + dao!
@@ -101,24 +101,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void mostraResultadoRespuesta(){
-        int opcionCorrecta = preguntas.get(numeroPreguntaMostrada).getRespuestaCorrecta();
-        int respeustaEscogida =  respeustasRadioGroup.indexOfChild(findViewById(respeustasRadioGroup.getCheckedRadioButtonId()));
-        String resultado = getResources().getString(R.string.resuesta_correcta);
-        boolean esPreguntaFinal = false;
 
-        if(opcionCorrecta != respeustaEscogida){
-            resultado = getResources().getString(R.string.resuesta_incorrecta);
-        }
+    private boolean mostrarResultadoRespuesta(){
+        boolean esPreguntaFinal = (numeroPreguntaMostrada == preguntas.size() - 1) ;
+        boolean esCorrecta = (preguntas.get(numeroPreguntaMostrada).getRespuestaCorrecta() ==
+                respeustasRadioGroup.indexOfChild(findViewById(respeustasRadioGroup.getCheckedRadioButtonId())));
 
-        if(numeroPreguntaMostrada == preguntas.size() - 1){
-            resultado = resultado + "\n" + getResources().getString(R.string.informacion_fin_juego);
-            esPreguntaFinal = true;
-        }
+        Intent mostrarcorreccion = new Intent(this, Activity_answer.class);
+        mostrarcorreccion.putExtra("esCorrecta", esCorrecta);
+        mostrarcorreccion.putExtra("esFinal", esPreguntaFinal);
 
-        Intent mostrarCorrecion = new Intent(this, Activity_answer.class);
-        mostrarCorrecion.putExtra("correccion", resultado);
-        mostrarCorrecion.putExtra("esFinal", esPreguntaFinal);
-        startActivity(mostrarCorrecion);
+        startActivity(mostrarcorreccion);
+        return esCorrecta;
     }
 }
