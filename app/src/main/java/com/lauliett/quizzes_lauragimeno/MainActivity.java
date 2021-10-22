@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     private void inicializarDatos(){
         PreguntasPorIdioma idioma = new PreguntasPorIdioma();
         //esto va a funcionar incluso cuando la app está abierta, porque ante un cambio de
-        //configuración las activitys se "destruyen" y se vuelven a crear!!!!!!
+        //configuración las activitys se "destruyen" y se vuelven a crear!!!!!
         this.preguntas = idioma.devolverPreguntas(Locale.getDefault().getLanguage());
         numeroPreguntaMostrada = 0;
         textoPregunta.setText(preguntas.get(numeroPreguntaMostrada).getPregunta());
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String devolverFormatoNumeroPreguntaMostrada(){
-        return String.valueOf(numeroPreguntaMostrada + 1) + "/" + String.valueOf(preguntas.size());
+        return (numeroPreguntaMostrada + 1) + "/" + (preguntas.size());
     }
 
     private RadioButton crearRadioButton(String respuesta){
