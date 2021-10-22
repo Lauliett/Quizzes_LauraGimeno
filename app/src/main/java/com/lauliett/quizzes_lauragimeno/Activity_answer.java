@@ -35,7 +35,7 @@ public class Activity_answer extends AppCompatActivity {
             mensajeResultado = getResources().getString(R.string.resuesta_incorrecta);
         }
 
-        if(extras.getBoolean("esFinal")){
+        if(extras.getBoolean("esFinal") && extras.getBoolean("esCorrecta")){
             mensajeResultado += getResources().getString(R.string.informacion_fin_juego);
             btnContinuar.setText(getResources().getString(R.string.boton_reiniciar_partida));
         }
