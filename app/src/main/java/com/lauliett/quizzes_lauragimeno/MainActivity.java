@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
         respeustasRadioGroup = findViewById((R.id.respeustasRadioGroup));
         send = findViewById(R.id.send_btn);
 
-        send.setText(getResources().getText(R.string.boton_enviar));
-
         send.setOnClickListener(view -> {
             if(respeustasRadioGroup.getCheckedRadioButtonId() == -1){
                 Toast.makeText(this,"Debe seleccionar una respuesta", Toast.LENGTH_SHORT).show();

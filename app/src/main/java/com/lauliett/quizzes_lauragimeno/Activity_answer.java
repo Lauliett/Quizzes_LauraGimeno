@@ -19,8 +19,6 @@ public class Activity_answer extends AppCompatActivity {
         correccion = findViewById(R.id.correccionRespuesta_txtView);
         btnContinuar = findViewById(R.id.btnContinuar);
 
-        btnContinuar.setText(R.string.boton_continuar);
-
         mostrarMensajeCorreccion();
 
         btnContinuar.setOnClickListener(view -> {
@@ -39,6 +37,7 @@ public class Activity_answer extends AppCompatActivity {
 
         if(extras.getBoolean("esFinal")){
             mensajeResultado += getResources().getString(R.string.informacion_fin_juego);
+            btnContinuar.setText(getResources().getString(R.string.boton_reiniciar_partida));
         }
 
         correccion.setText(mensajeResultado);
